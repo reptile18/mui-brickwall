@@ -1,24 +1,33 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Grid } from '@material-ui/core';
 import './App.css';
+import BrickWall from './components/BrickWall';
+
+const styles = {
+  brick: {
+    backgroundColor: "red",
+    color: "white"
+  }
+}
+
+function renderChildren(number) {
+  const array = [];
+  for (let i = 0; i < number; i++) {
+    array.push((
+      <Grid key={i} style={styles.brick} container justify="center" alignItems="center">{i}</Grid>
+    ))
+  }
+  return array;
+}
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrickWall xl={7} lg={6} md={5} sm={4} xs={3}>
+        {
+          renderChildren(22)
+        }
+      </BrickWall>
     </div>
   );
 }
