@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Grid } from '@material-ui/core';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import json2mq from 'json2mq';
+import './style.css'
 
 function BrickWall(props) {
   const smAndUp = useMediaQuery(json2mq({ minWidth: 600 }));
@@ -41,12 +42,12 @@ function BrickWall(props) {
       // add invisible stubs
       if (brickIndex > items.length - 1) {
         brickRowArray.push(
-          <Grid className="invisible" item xs={2}></Grid>
+          <Grid className="invisible mui-containers-brick-wall" item xs={2}></Grid>
         )
       }
       else {
         brickRowArray.unshift(
-          <Grid className="brick" item xs={2} data-index={brickIndex} >{items[brickIndex]}</Grid>
+          <Grid className="brick mui-containers-brick-wall" item xs={2} data-index={brickIndex} >{items[brickIndex]}</Grid>
         )
       }
       
@@ -54,7 +55,7 @@ function BrickWall(props) {
     
 
     return (
-      <Grid className="brickRow" container direction="row" justify="center" alignItems="center">
+      <Grid className="brickRow" container direction="row" justify="center" alignItems="center" spacing={props.spacing}>
         {
           brickRowArray
         }
@@ -95,7 +96,7 @@ function BrickWall(props) {
   }
 
   return (
-    <Grid container direction="column" justify="center" alignItems="center">
+    <Grid container direction="column" justify="center" alignItems="center" spacing={props.spacing} >
       {/* <Grid item>{`smAndUp: ${smAndUp}`}</Grid>
       <Grid item>{`mdAndUp: ${mdAndUp}`}</Grid>
       <Grid item>{`lgAndUp: ${lgAndUp}`}</Grid>

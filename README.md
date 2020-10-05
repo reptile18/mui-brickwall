@@ -1,3 +1,9 @@
+# MUI-Brickwall
+
+A simple, fun container built in Material-UI. The plan is to eventually package this with several other containers such as MUI-CircleContainer (doesn't exist yet) in a Fun Containers package. More usage information to come.
+
+![brick wall preview](.readme/preview.png)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
